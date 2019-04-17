@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Data
 {
-    public interface IDataSource
+    public interface ITrajectoryDataSource
     {
         int GetTrajectoryCount();
-        List<Vector3> GetControlPoints(int trajectoryIndex);
+        Vector3[] GetWayPoints(int trajectoryIndex);
     }
 }

@@ -8,7 +8,7 @@ namespace Assets.Scripts.ZenjectInstallers
     {
         public override void InstallBindings()
         {
-            Container.Bind<IDataSource>().To<JsonDataSource>().AsSingle();            
+            Container.Bind<ITrajectoryDataSource>().To<JsonTrajectoryDataSource>().AsSingle();            
         }
     }
 }
