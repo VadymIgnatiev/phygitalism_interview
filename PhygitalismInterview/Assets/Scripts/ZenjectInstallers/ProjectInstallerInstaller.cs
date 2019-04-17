@@ -1,4 +1,5 @@
-using UnityEngine;
+using Assets.Scripts.Data;
+using Assets.Scripts.Data.DataSources.JsounSource;
 using Zenject;
 
 namespace Assets.Scripts.ZenjectInstallers
@@ -7,7 +8,7 @@ namespace Assets.Scripts.ZenjectInstallers
     {
         public override void InstallBindings()
         {
-            Container.Bind<string>().FromInstance("Hello World!");            
+            Container.Bind<IDataSource>().To<JsonDataSource>().AsSingle();            
         }
     }
 }
