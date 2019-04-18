@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca8f78a59d8b04f8c7fc8c466069d0, type: 3}
+  m_Name: TrajectoryDataFiles
+  m_EditorClassIdentifier: 
+  m_TrajectoryFiles:
+  - {fileID: 4900000, guid: 002bf04c6eab09b40ad91e5587415922, type: 3}
+  - {fileID: 4900000, guid: 555443bd84e6fe34390b6dea0a201224, type: 3}
+  - {fileID: 4900000, guid: bbc825811841f874fb39da6b47a616e6, type: 3}
+  - {fileID: 4900000, guid: b34821f989f86d247af8750353e45be8, type: 3}
