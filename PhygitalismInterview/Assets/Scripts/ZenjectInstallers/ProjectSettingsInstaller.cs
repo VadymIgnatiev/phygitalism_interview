@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.SceneObjects.Ball;
+using Assets.Scripts.SceneObjects.Ball.Spawner;
 using Assets.Scripts.SceneObjects.Camera;
-using Assets.Scripts.Static;
 using UnityEngine;
 using Zenject;
 
@@ -11,11 +11,13 @@ namespace Assets.Scripts.ZenjectInstallers
     {
         public BallSettings BallSettings;
         public CameraSettings CameraSettings;
+        public BallSpawnSettings BallSpawnSettings;
 
         public override void InstallBindings()
         {            
             Container.BindInstance(BallSettings).IfNotBound();
             Container.BindInstance(CameraSettings).IfNotBound();
+            Container.BindInstance(BallSpawnSettings).IfNotBound();
         }
     }
 }

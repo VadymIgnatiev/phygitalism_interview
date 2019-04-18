@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d937416b46810ae479821babb9af816f, type: 3}
-  m_Name: ProjectSettingsInstaller
+  m_Name: ProjectSettings
   m_EditorClassIdentifier: 
   BallSettings:
     MaxBallSpeed: 5
     DoubleClickSensitivity: 0.3
   CameraSettings:
-    RotationSpead: 0
-    CameraOffset: 0
+    RotationSpead: 5
+    CameraOffset: 3
+  BallSpawnSettings:
+    BallPrefab: {fileID: 4806473625878235129, guid: 68682227fe1d67541bad8f1d55500863,
+      type: 3}
+    InitSpawnPosition: {x: 0, y: 0, z: 0}
+    DistanceBetweenBalls: 5

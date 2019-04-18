@@ -3,30 +3,47 @@ using Zenject;
 
 namespace Assets.Scripts.SceneObjects.Camera
 {
-    public class CameraFacade : MonoBehaviour
+    public class CameraFacade : MonoBehaviour, ISceneCamera
     {
-        public GameObject target;
-        public float rotateSpeed = 5;
-        public Vector3 offset;
+        private Transform m_TargetTransform;
+        private float m_RotationSpeed;
+        private Vector3 m_Offset;
 
         [Inject]
         private CameraSettings m_CameraSettings;
 
         void Start()
         {
-            offset = target.transform.position - transform.position;
+            m_RotationSpeed = m_CameraSettings.RotationSpead;
+            SetOffset();
         }
 
-        void LateUpdate()
+        private void SetOffset()
         {
-            float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
-            target.transform.Rotate(0, horizontal, 0);
+            m_Offset = (m_TargetTransform.transform.position - transform.position).normalized * m_CameraSettings.CameraOffset;
+        }
 
-            float desiredAngle = target.transform.eulerAngles.y;
+        public void SetTargetTransform(Transform targetTransform)
+        {
+            m_TargetTransform = targetTransform;
+            SetOffset();
+        }
+
+        public void LateUpdate()
+        {
+            float horizontal = 0;
+            if (Input.GetMouseButton(0))
+            {
+                horizontal = Input.GetAxis("Mouse X") * m_RotationSpeed;
+            }
+
+            m_TargetTransform.Rotate(0, horizontal, 0);
+
+            float desiredAngle = m_TargetTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
-            transform.position = target.transform.position - (rotation * offset);
+            transform.position = m_TargetTransform.position - (rotation * m_Offset);
 
-            transform.LookAt(target.transform);
+            transform.LookAt(m_TargetTransform);
         }
     }
 }
