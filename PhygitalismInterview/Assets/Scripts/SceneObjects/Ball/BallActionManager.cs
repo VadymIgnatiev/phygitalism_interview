@@ -12,11 +12,11 @@ namespace Assets.Scripts.SceneObjects.Ball
         private BallActions m_CurrentActionType;
         private BallInputHandler m_BallInputHandler;
 
-        public BallActionManager(BallFacade ball, ITrajectoryDataSource trajectorySource, BallInputHandler ballInputHandler)
+        public BallActionManager(BallFacade ball, ITrajectoryDataSource trajectorySource, BallInputHandler ballInputHandler, BallSettings ballSettings)
         {
             m_Actions = new Dictionary<BallActions, IBallAction>();
             m_Actions.Add(BallActions.Idle, new IdleAction());
-            m_Actions.Add(BallActions.Moving, new MovingAction(ball, trajectorySource));
+            m_Actions.Add(BallActions.Moving, new MoveDrawTrajectoryAction(ball, trajectorySource, ballSettings));
             m_Actions.Add(BallActions.MoveToTrajectoryStart, new MoveToTrajectoryStart(ball, trajectorySource));            
 
             SetAction(BallActions.MoveToTrajectoryStart);

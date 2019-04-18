@@ -18,7 +18,7 @@ namespace Assets.Scripts.SceneObjects.Ball.Actions
             m_TrajectorySource = trajectorySource;
 
             m_WayPoints = m_TrajectorySource.GetWayPoints(m_Ball.BallIndex);
-            IsComplited = false;
+            IsComplited = false;               
         }
 
         public void StartAction()
@@ -29,6 +29,7 @@ namespace Assets.Scripts.SceneObjects.Ball.Actions
             }
 
             IsComplited = true;
+            m_Ball.LineRenderer.positionCount = 0;
         }
 
         public void Update()

@@ -8,5 +8,6 @@ namespace Assets.Scripts.SceneObjects.Ball
     {
         public float MaxBallSpeed;
         public float DoubleClickSensitivity;
+        public float MovingPrecision;
     }
 }

@@ -11,6 +11,9 @@ namespace Assets.Scripts.SceneObjects.Ball
 
         public float MovingSpeed { get; private set; }
 
+        [SerializeField]
+        public LineRenderer LineRenderer;        
+
         [Inject]
         private ITrajectoryDataSource m_TrajectorySource;
         
@@ -19,7 +22,7 @@ namespace Assets.Scripts.SceneObjects.Ball
         public Transform Transform => transform;
 
         private BallActionManager m_BallStateManager;
-        private BallInputHandler m_BallInputHandler;
+        private BallInputHandler m_BallInputHandler;        
 
         public void Init(BallSettings ballSettings, ITrajectoryDataSource trajectorySource, int ballIndex)
         {
@@ -28,13 +31,14 @@ namespace Assets.Scripts.SceneObjects.Ball
             m_TrajectorySource = trajectorySource;
             MovingSpeed = m_BallSettings.MaxBallSpeed;
             m_BallInputHandler = new BallInputHandler(m_BallSettings.DoubleClickSensitivity);
-            m_BallStateManager = new BallActionManager(this, m_TrajectorySource, m_BallInputHandler);            
+            m_BallStateManager = new BallActionManager(this, m_TrajectorySource, m_BallInputHandler, m_BallSettings);            
         }        
 
         public void Update()
         {
             m_BallInputHandler.Update();
             m_BallStateManager.Update();
+            
         }        
 
         void OnMouseDown()
