@@ -15,18 +15,24 @@ namespace Assets.Scripts.SceneObjects.Camera
         void Start()
         {
             m_RotationSpeed = m_CameraSettings.RotationSpead;
-            SetOffset();
+            SetCameraToTarget();
         }
 
-        private void SetOffset()
+        private void SetCameraToTarget()
         {
-            m_Offset = (m_TargetTransform.transform.position - transform.position).normalized * m_CameraSettings.CameraOffset;
+            float x = m_TargetTransform.position.x;
+            float y = m_TargetTransform.position.y;
+            float z = m_TargetTransform.position.z - m_CameraSettings.CameraOffset;
+            
+            transform.position = new Vector3(x, y, z);
+
+            m_Offset = m_TargetTransform.position - transform.position;
         }
 
         public void SetTargetTransform(Transform targetTransform)
         {
             m_TargetTransform = targetTransform;
-            SetOffset();
+            SetCameraToTarget();
         }
 
         public void LateUpdate()

@@ -32,7 +32,7 @@ namespace Assets.Scripts.SceneObjects.Ball.Spawner
             for (int i = 0; i < trajectoryCount; i++)
             {
                 IBallFacade ball = BallFactory.Create(i);
-                ball.Transform.position = newballPosition;
+                //ball.Transform.position = newballPosition;
                 ball.Transform.rotation = Quaternion.identity;
                 m_SceneManager.AddNewBall(ball);
 

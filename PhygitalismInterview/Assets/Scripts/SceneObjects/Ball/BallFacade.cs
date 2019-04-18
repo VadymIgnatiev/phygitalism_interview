@@ -23,12 +23,12 @@ namespace Assets.Scripts.SceneObjects.Ball
 
         public void Init(BallSettings ballSettings, ITrajectoryDataSource trajectorySource, int ballIndex)
         {
+            BallIndex = ballIndex;
             m_BallSettings = ballSettings;
             m_TrajectorySource = trajectorySource;
             MovingSpeed = m_BallSettings.MaxBallSpeed;
             m_BallInputHandler = new BallInputHandler(m_BallSettings.DoubleClickSensitivity);
-            m_BallStateManager = new BallActionManager(this, m_TrajectorySource, m_BallInputHandler);
-            BallIndex = ballIndex;
+            m_BallStateManager = new BallActionManager(this, m_TrajectorySource, m_BallInputHandler);            
         }        
 
         public void Update()
