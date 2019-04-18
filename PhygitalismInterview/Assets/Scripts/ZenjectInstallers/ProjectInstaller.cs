@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Assets.Scripts.ZenjectInstallers
 {
-    public class ProjectInstallerInstaller : MonoInstaller<ProjectInstallerInstaller>
+    public class ProjectInstaller : MonoInstaller<ProjectInstaller>
     {
         public override void InstallBindings()
         {
